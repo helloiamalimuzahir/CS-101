@@ -1,0 +1,35 @@
+#### YOUR CODE FOR good_enough() FUNCTION GOES HERE ####
+
+def good_enough (guess,n):
+    if abs(guess*guess-n)<0.000001:
+        return True
+    else:
+        return False
+
+#### End OF MARKER
+
+
+#### YOUR CODE FOR sqrt() FUNCTION GOES HERE ####
+
+def sqrt (n,guess,counter = 1):
+    if n < 0 :
+        return None
+    if good_enough(guess,n):
+        print ('Tooks', counter, 'steps')
+        return guess
+    else:
+        new_guess=improve_guess(guess,n)
+        counter = counter + 1
+        return sqrt(n,new_guess,counter)
+
+#### End OF MARKER
+
+
+#### YOUR CODE FOR improve_guess() FUNCTION GOES HERE ####
+
+def improve_guess(guess,n):
+    a = (pow(guess,2)-n) / (2*guess)
+    b = guess-a  
+    return b
+	
+#### End OF MARKER
