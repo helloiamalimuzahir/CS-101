@@ -1,0 +1,17 @@
+## START OF get_diag_sum FUNCTION
+
+#sum of diagonals on a spiral
+
+def get_diag_sum(n):                                                         # ok so there's a pattern here
+    if n < 1 or n % 2 == 0:                                                  # on top right of spiral we have values of (n^2)
+        return None                                                          # on top left we got (n^2)-(n-1)
+    elif n == 1:                                                             # on bottom left we got (n^2)-((n-1)+(n-1))
+        return 1                                                             # on bottom right we got (n^2)-((n-1)+(n-1)+(n-1))
+    else:                                                                    # add them all and we get 4(n^2)-6(n-1)
+        lol = (  ( 4 * n * n ) - 6 * n + 6   + ( get_diag_sum(n-2) )  )  
+        return lol
+                                                                             #recursive because we need to add the two lesser diag sum
+                                                                             #every time too, to get right answer
+                                                                  
+
+## END OF MARKER
